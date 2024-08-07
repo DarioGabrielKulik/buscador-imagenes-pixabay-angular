@@ -1,0 +1,21 @@
+<app-spinner *ngIf="logding"></app-spinner>
+<div class="row row-cols-1 row-cols-md-5 g-4 " *ngIf="!logding">
+    <div class="col mb-3 mt-3 col-sm-4" *ngFor="let lista of listImagenes">
+      <div class="card text-center">
+        <img [src]="lista.previewURL" class="card-img-top" >
+        <div class="card-body">
+            <a [href]="lista.largeImageURL" class="btn btn-primary btn-block" target="_blank">VER IMAGEN</a>
+        </div>
+      </div>
+    </div>   
+  </div>
+  <div class="d-flex justify-content-center mt-2" *ngIf="listImagenes.length > 0">
+    <ul class="pagination pagination-lg">
+      <li class="page-item" *ngIf="paginaActualClass()">
+        <a class="page-link" (click)="paginaAnterior()">&laquo;Anterior</a>
+      </li> 
+      <li class="page-item" *ngIf="paginaPosteriorClass()">
+        <a class="page-link" (click)="paginaPosterior()">Siguiente&raquo;</a>
+      </li>
+    </ul>
+  </div>
